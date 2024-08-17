@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        :root {
+            --maincolor: #2b739a;
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--maincolor);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="myVideo" controls autoplay>
+            <source src="/images/Guide-tour.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="closeVideo" class="close-btn">&times;</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const closeBtn = document.getElementById('closeVideo');
+
+            // Close button functionality
+            closeBtn.addEventListener('click', () => {
+                window.history.back(); // Navigate back to the previous page
+            });
+        });
+    </script>
+</body>
+</html>
